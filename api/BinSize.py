@@ -27,16 +27,19 @@ def createNewProblem():
     return problemID, binEncoding
 
 
-
-
 @app.route('/')
 def main():
     return 'Hello and Welcome to Bin Packing.'
 
 @app.route('/newproblem', methods=['GET'])
 def newProblem():
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     '''
-    Input: There is no input for this API endpoint
+    Input: None
     Output is a JSON Object: { 'ID': problemID 'bins' : binEncoding }
     The problemID should be an integer that can be used to reference a particular set of bins that are being packed.
     The binEncoding for a new (fresh) instance of bin packing should be an empty set containing no bins
@@ -50,7 +53,18 @@ def newProblem():
     return json.dumps(response)
 
 @app.route('/placeItem/<problemID>/<size>', methods=['GET'])
+# Originally, MAX size is 100
+# edit code so that the size can be any.
 def placeItem(problemID, size):
+    """_summary_
+
+    Args:
+        problemID (_type_): _description_
+        size (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     problemID = int(problemID)
     binPlaced = False
     if binPackingInstancesCompleted[problemID] == True or int(size) > 100:
@@ -79,6 +93,14 @@ def placeItem(problemID, size):
 
 @app.route('/endproblem/<problemID>', methods=['GET'])
 def endProblem(problemID):
+    """_summary_
+
+    Args:
+        problemID (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     problemID = int(problemID)
     binEncoding = binPackingInstances[problemID]
     bins = binEncoding.split('#')
