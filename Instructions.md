@@ -1,0 +1,31 @@
+# Assignment Two : Fun with Bin Packing
+
+You have been given code that implements the API described here: [Bin Packing API Specification](https://github.com/mlepinski/Adv-software-design/blob/main/Assignment-One/Bin_Pack.md)
+
+## Goal
+
+Your high-level goal is to create an **algorithm evaluation system** that allows you to evaluate the performance of a Bin Packing algorithm across a variety of data sets.
+
+Note: The Bin Packing API specified that all bin packing problems must use bins of size 100. For this assignment you will be adjusting the API to accomodate bins of any (fixed) size. 
+(E.g., your framework should support bin packing problems with size 10 bins, or size 25 bins, or any size that the problem instance specifies.)
+
+Your algorithm evaluation system must do the following:
+
+- Use Docker to create at least three containers. 
+- One container should run the Bin Packing Algorithm API (using the code that you received). Call this algorithm Alex.
+- One container should run code for the algorithm evaluation framework.
+- One container should run a storage system for Bin Packing test cases (sequences of items to pack in bins of a given size).
+- Modify the Bin Packing Algorithm API to work with Bins of any (fixed) size.
+- Use your algorithm evaluation system to evaluate the performance of Alex across a broad set of test data. 
+(The most important metric is the number of bins used for each test case, but you may have other metrics that you find interesting.)
+- Run Alex many times permuting the order of items in a test case and see to what extend that impacts Alex's performance. 
+(That is, present the items in a test case to Alex in a random order.)
+- Make a minor modification to Alex's bin packing logic and call this modified algorithm Carla. 
+- Use your algorithm evaluation system to evaluate the relative performance of Alex and Carla on your test cases. 
+- Similarly, evaluate the relative performance of Alex and Carla when you use many random permutations of your test cases.
+
+# Turning In the Assignment
+
+Your team should submit a link to a repository that contains a compose.yaml file as well as all files necessary to build and run your docker containers.
+
+If there is any other information that I need to make use of your algorithm evaluation framework, please make sure that information is easy to find in your repository.
