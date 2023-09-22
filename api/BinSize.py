@@ -17,11 +17,13 @@ binPackingInstances = {}
 binPackingInstancesCompleted = {}
 lastProblemID = 0
 
-def createNewProblem():
+def create_new_problem():
     global lastProblemID
     lastProblemID += 1
     problemID = lastProblemID
     binEncoding = ""
+    total_size = 0
+    total_bins = 0
     binPackingInstances[problemID] = binEncoding
     binPackingInstancesCompleted[problemID] = False
     return problemID, binEncoding
@@ -32,7 +34,7 @@ def main():
     return 'Hello and Welcome to Bin Packing.'
 
 @app.route('/newproblem', methods=['GET'])
-def newProblem():
+def new_problem():
     """_summary_
 
     Returns:
@@ -48,14 +50,14 @@ def newProblem():
     problemID, binEncoding = createNewProblem()
 
     response = {
-        "ID": problemID, 'bins': binEncoding
+        'ID': problemID, 'bins': binEncoding
     }
     return json.dumps(response)
 
 @app.route('/placeItem/<problemID>/<size>', methods=['GET'])
 # Originally, MAX size is 100
 # edit code so that the size can be any.
-def placeItem(problemID, size):
+def place_item(problemID, size):
     """_summary_
 
     Args:
@@ -92,7 +94,7 @@ def placeItem(problemID, size):
 
 
 @app.route('/endproblem/<problemID>', methods=['GET'])
-def endProblem(problemID):
+def end_problem(problemID):
     """_summary_
 
     Args:
