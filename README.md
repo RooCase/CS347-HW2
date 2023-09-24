@@ -1,9 +1,7 @@
 Team members: Artem Yushko, John Win, Roo Case
 
-John: Testing, 3 containers
-
+John: Testing + Performance tests, 3 containers, help pickup whatever
 Roo: Documentation, Adjust bin size, start modifying API
-
 Artem: Compare performance and make performance tests, help Roo with API
 
 #TODO

@@ -19,6 +19,9 @@ from ..api import BinSize
 
 #test insert item size 10000
 #test 10000 bins with bin of size 1000
+
+
+# different bin sizes from 0 to 1 mil
 problems_dic = {}
 
 def retrieve_id():
