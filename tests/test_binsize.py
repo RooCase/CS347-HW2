@@ -1,5 +1,5 @@
 import pytest
-from ..api import BinSize
+from ..api import bin_size
 
 # pytest functions
 
@@ -25,13 +25,13 @@ from ..api import BinSize
 problems_dic = {}
 
 def retrieve_id():
-    new_bin = BinSize.newProblem()
+    new_bin = bin_size.newProblem()
     problems_dic['ID'] = new_bin['bins']
     return new_bin['ID']
 
 
 def test_new_problem():
-    new_bin = BinSize.newProblem()
+    new_bin = bin_size.newProblem()
     assert new_bin['bins'] == ""
 
 #make a test Class, and make a new object everytime?
@@ -40,4 +40,4 @@ def test_new_problem():
 #should have a new problem creation
 def test_item_size_0():
     id = retrieve_id()
-    BinSize.place_item()
+    bin_size.place_item()
