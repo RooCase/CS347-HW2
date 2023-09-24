@@ -54,7 +54,7 @@ def new_problem():
 
 @app.route('/placeItem/<problemID>/<size>', methods=['GET'])
 # Originally, MAX size is 100
-# edit code so that the size can be any.
+# TODO: edit code so that the size can be any.
 def place_item(problemID, size):
     """_summary_
 
