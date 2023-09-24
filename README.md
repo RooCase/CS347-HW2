@@ -1,8 +1,8 @@
 Team members: Artem Yushko, John Win, Roo Case
 
-John: Testing
-Roo: 
-Artem: 
+John: Testing, 3 containers
+Roo: Documentation, Adjust bin size, start modifying API
+Artem: Compare performance and make performance tests, help Roo with API
 
 #TODO
 1. adjust the input bin size from 100 to any

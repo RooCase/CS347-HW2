@@ -22,8 +22,6 @@ def create_new_problem():
     lastProblemID += 1
     problemID = lastProblemID
     binEncoding = ""
-    total_size = 0
-    total_bins = 0
     binPackingInstances[problemID] = binEncoding
     binPackingInstancesCompleted[problemID] = False
     return problemID, binEncoding
@@ -47,7 +45,7 @@ def new_problem():
     The binEncoding for a new (fresh) instance of bin packing should be an empty set containing no bins
     '''
 
-    problemID, binEncoding = createNewProblem()
+    problemID, binEncoding = create_new_problem()
 
     response = {
         'ID': problemID, 'bins': binEncoding
