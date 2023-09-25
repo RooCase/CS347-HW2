@@ -1,4 +1,5 @@
 import logging
+import time
 from ..api import bin_size
 
 class Evaluation(object):
@@ -15,11 +16,25 @@ class Evaluation(object):
         )
         self.logger = logging.getLogger(__name__)
 
+    def time_place(self, problem, size):
+        """
+        Measures the time it takes to place a bin of specific size
+        """
+        start_time = time.time() # testing the empty placement
+        response = bin_size.place_item(problem, size)
+        end_time = time.time()
+        self.logger.info(f"Execution time for place_item size {size}: {end_time-start_time} seconds")
+        return response
+
     def measure_place(self):
         """
         Measures the average bin placement time
         """
-        return
+        test_problem = bin_size.new_problem() # creating a new problem for testing purposes
+        times = [-1, 0, 1, 5, 15, 99, 100, 101, 1000, 12500]
+        for t_time in times:
+            self.time_place(test_problem, t_time)
+        return 200
     
     def measure_newend(self):
         """
