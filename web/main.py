@@ -14,7 +14,7 @@ def alex():
     return {"Alex"}
 
 @app.route('/Carla')
-def alex():
+def carla():
     return {"Carla"}
 
 if __name__ == '__main__':

@@ -40,7 +40,7 @@ def new_problem(size):
         JSON response
     """
     '''
-    Input: None
+    Input: Set the bin size of each bin in the problem
     Output is a JSON Object: { 'ID': problemID 'bins' : binEncoding }
     The problemID should be an integer that can be used to reference a particular set of bins that are being packed.
     The binEncoding for a new (fresh) instance of bin packing should be an empty set containing no bins

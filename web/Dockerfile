@@ -7,7 +7,7 @@ FROM python:3.7-alpine
 WORKDIR /code
 
 # We set some Environment variables in the container which Flask uses
-ENV FLASK_APP=app.py
+ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # We install Flask and requests in the container using Pip
