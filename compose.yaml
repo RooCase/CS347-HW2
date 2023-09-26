@@ -9,9 +9,16 @@
 services:
     web:
         build: ./web
+        links:
+          - db
         ports:
           - "7555:5000"
     api:
         build: ./api
-        expose:
+        expose: #only available to the other images
           - "5000"
+    db:
+        build: ./tests
+        restart: always
+        ports:
+          - "6600:6600"
