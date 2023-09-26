@@ -10,6 +10,8 @@ Artem: Compare performance and make performance tests, help Roo with API
 3. creater three containters (for API, Eval framework, and Test cases)
 4. modify API slightly (however you want) and set this as a new API
 5. <del>compare new API's performance to old API's</del>
+6. <del>write unit tests</del>
 
 
 To run the evaluation algorithm, type `python3 web/evaluate.py` and read the logs produced
+To test the project, type `python3 tests/test_binsize.py`
