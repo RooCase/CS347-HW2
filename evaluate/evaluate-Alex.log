@@ -1,0 +1,20 @@
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 0 times: 7.152557373046875e-07 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 1 times: 1.5974044799804688e-05 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 2 times: 1.3113021850585938e-05 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 5 times: 2.6464462280273438e-05 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 10 times: 2.7418136596679688e-05 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 15 times: 3.314018249511719e-05 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 50 times: 0.00010275840759277344 seconds
+2023-09-25 19:00:16,291 - __main__ - INFO - Execution time for new_problem 100 times: 0.00020742416381835938 seconds
+2023-09-25 19:00:16,293 - __main__ - INFO - Execution time for new_problem 1000 times: 0.002013683319091797 seconds
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for deleting all problems: 0.003543853759765625 seconds, last response: {"ID": 1183, "size": 0, "items": 0, "count": 1, "wasted": 0, "bins": ""}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 0: 1.1205673217773438e-05 seconds, response: {"ID": 1184, "size": "0", "loc": 1, "bins": "!0"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 1: 1.0967254638671875e-05 seconds, response: {"ID": 1184, "size": "1", "loc": 1, "bins": "!0!1"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 5: 1.049041748046875e-05 seconds, response: {"ID": 1184, "size": "5", "loc": 1, "bins": "!0!1!5"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 15: 1.0728836059570312e-05 seconds, response: {"ID": 1184, "size": "15", "loc": 1, "bins": "!0!1!5!15"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 99: 1.049041748046875e-05 seconds, response: {"ID": 1184, "size": "99", "loc": 2, "bins": "!0!1!5!15#99"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 100: 1.52587890625e-05 seconds, response: {"ID": 1184, "size": "100", "loc": 3, "bins": "!0!1!5!15#99#100"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 101: 6.67572021484375e-06 seconds, response: {"error": "Problem ID has already been completed or size of item is too large"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 1000: 6.67572021484375e-06 seconds, response: {"error": "Problem ID has already been completed or size of item is too large"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Execution time for place_item size 12500: 5.7220458984375e-06 seconds, response: {"error": "Problem ID has already been completed or size of item is too large"}
+2023-09-25 19:00:16,297 - __main__ - INFO - Total running time for Alex evaluation is 0.0060727596282958984
