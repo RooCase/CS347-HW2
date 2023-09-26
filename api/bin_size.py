@@ -16,6 +16,7 @@ app = flask.Flask(__name__)
 binPackingInstances = {}
 binPackingInstancesCompleted = {}
 lastProblemID = 0
+problemBinSize = {}
 
 def create_new_problem():
     global lastProblemID
@@ -31,12 +32,12 @@ def create_new_problem():
 def main():
     return 'Hello and Welcome to Bin Packing.'
 
-@app.route('/newproblem', methods=['GET'])
-def new_problem():
+@app.route('/newproblem/<int:size>', methods=['GET'])
+def new_problem(size):
     """_summary_
 
     Returns:
-        _type_: _description_
+        JSON response
     """
     '''
     Input: None
@@ -46,9 +47,9 @@ def new_problem():
     '''
 
     problemID, binEncoding = create_new_problem()
-
+    problemBinSize.update({problemID:size})
     response = {
-        'ID': problemID, 'bins': binEncoding
+        'ID': problemID, 'bins': binEncoding,
     }
     return json.dumps(response)
 
@@ -67,14 +68,14 @@ def place_item(problemID, size):
     """
     problemID = int(problemID)
     binPlaced = False
-    if binPackingInstancesCompleted[problemID] == True or int(size) > 100:
+    if binPackingInstancesCompleted[problemID] == True or int(size) > problemBinSize[problemID]:
         return json.dumps({'error': 'Problem ID has already been completed or size of item is too large'})
     binEncoding = binPackingInstances[problemID]
     bins = binEncoding.split('#')
     for index, bin in enumerate(bins):
         items = bin.split('!')
         total_size = sum(int(item) for item in items if item)  
-        if total_size + int(size) <= 100:
+        if total_size + int(size) <= problemBinSize[problemID]:
             items.append(size)
             bins[index] = '!'.join(items)
             new_bin_encoding = '#'.join(bins)
