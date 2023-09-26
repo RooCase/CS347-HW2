@@ -26,15 +26,16 @@ class Evaluation(object):
         """
         Measures the average bin placement time
         """
-        test_problem = bin_size.new_problem() # creating a new problem for testing purposes
+        test_problem = bin_size.new_problem(12501) # creating a new problem for testing purposes
         test_id = json.loads(test_problem)["ID"]
-        sizes = [0, 1, 5, 15, 99, 100, 101, 1000, 12500] # bin sizes we will test
+        sizes = range(0, 12501) # bin sizes we will test
         total = 0 # total time to be returned
         for size in sizes:
             start_time = time.time() # testing each placement size
             response = bin_size.place_item(test_id, str(size))
             end_time = time.time()
-            self.logger.info(f"Execution time for place_item size {size}: {end_time-start_time} seconds, response: {response}")
+            if not size % 1000:
+                self.logger.info(f"Execution time for place_item up to size {size}: {total} seconds")
             total += end_time-start_time
         response = bin_size.end_problem(test_id)
         return total
@@ -43,14 +44,14 @@ class Evaluation(object):
         """
         Measures the average time needed to create and delete problems
         """
-        times = [0, 1, 2, 5, 10, 15, 50, 100, 1000] # how many bins we will be creating as a part of the test
+        times = [0, 1, 10, 100, 1000, 10000] # how many bins we will be creating as a part of the test
         total = 0 # total time to be returned
         for t_time in times:
             start_time = time.time() # testing each creation size
             for i in range(0, t_time):
-                response = bin_size.new_problem() # create n problems
+                response = bin_size.new_problem(t_time) # create n problems
             end_time = time.time()
-            self.logger.info(f"Execution time for new_problem {t_time} times: {end_time-start_time} seconds")
+            self.logger.info(f"Execution time for new_problem up to {t_time} times: {total} seconds")
             total += end_time-start_time # save the info
         start_time = time.time() # testing deletion time
         for instanceId in bin_size.binPackingInstances.keys():
