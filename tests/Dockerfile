@@ -21,7 +21,6 @@ EXPOSE 5000
 # We copy everything in the current directory on our machine 
 # ... into the working directory in the container 
 # (In particular, this includes app.py)
-COPY ../api/binsize.py .
 COPY . .
 
 # When the container starts running,

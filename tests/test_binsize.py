@@ -2,10 +2,13 @@ import unittest
 import json
 import sys
 import os
+import bin_size
+import requests
+from flask import Flask
+
 current_dir = os.path.dirname(os.path.abspath(__file__)) # parallel import is weird
 parent_dir = os.path.dirname(current_dir) # I know what I am doing, I swear
 sys.path.append(parent_dir)
-from api import bin_size
 
 class TestBinPackingAPI(unittest.TestCase):
 
@@ -77,41 +80,30 @@ class TestBinPackingAPI(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
+app = Flask(__name__)
+tester = TestBinPackingAPI()
+tester.setUp()
 
-##!!!!! if something breaks and it's been fixed, add a test case
+@app.route('/')
+def hello():
+    return "Hello! Welcome to the bin-packing test suite."
 
-#test new problem
+@app.route('/test/new')
+def test_new():
+    tester.test_new_problem()
+    return "Test new success!"
 
-#test insert item size 3
-#test insert item size 10
-#test insert item size 0
-#test insert two items into same bin
+@app.route('/test/insert')
+def test_place():
+    tester.test_place_item()
+    return "Test insert success!"
 
-#test bin number returns properly
+@app.route('/test/invalid_insert')
+def test_invalid_place():
+    tester.test_invalid_place_item()
+    return "Test invalid insert success!"
 
-#test end problem
-
-#test insert item size 10000
-#test 10000 bins with bin of size 1000
-
-
-# # different bin sizes from 0 to 1 mil
-# problems_dic = {}
-
-# def retrieve_id():
-#     new_bin = bin_size.newProblem()
-#     problems_dic['ID'] = new_bin['bins']
-#     return new_bin['ID']
-
-
-# def test_new_problem():
-#     new_bin = bin_size.newProblem()
-#     assert new_bin['bins'] == ""
-
-# #make a test Class, and make a new object everytime?
-# #or just one object and reuse it?
-
-# #should have a new problem creation
-# def test_item_size_0():
-#     id = retrieve_id()
-#     bin_size.place_item()
+@app.route('/test/end')
+def test_end():
+    tester.test_end_problem()
+    return "Test end success!"

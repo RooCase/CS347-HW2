@@ -9,15 +9,13 @@
 services:
     web:
         build: ./web
-        links:
-          - tests
         ports:
           - "7555:5000"
     api:
         build: ./api
-        expose: #only available to the other images
+        expose:
           - "5000"
     tests:
         build: ./tests
         ports:
-          - "5000"
+          - "8888:5000"
